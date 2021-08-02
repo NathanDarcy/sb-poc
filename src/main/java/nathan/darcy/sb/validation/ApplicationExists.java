@@ -12,7 +12,7 @@ import javax.validation.Payload;
 @Target( {ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ApplicationExists {
-    public String message() default "application must already exist";
+    public String message() default "The given application has not been registered.";
 
     public Class<?>[] groups() default {};
 

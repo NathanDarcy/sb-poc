@@ -5,12 +5,12 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import nathan.darcy.sb.repository.ApplicationRepository;
+import nathan.darcy.sb.service.ApplicationProvider;
 
 public class ApplicationValidator implements ConstraintValidator<ApplicationExists, String> {
 
     @Autowired
-    private ApplicationRepository applicationRepository;
+    private ApplicationProvider applicationProvider;
 
     @Override
     public void initialize(ApplicationExists ae) {
@@ -19,7 +19,7 @@ public class ApplicationValidator implements ConstraintValidator<ApplicationExis
 
     @Override
     public boolean isValid(String appName, ConstraintValidatorContext context) {
-        return applicationRepository.existsByApplicationName(appName);
+        return applicationProvider.existsByApplicationName(appName);
     }
 
 
